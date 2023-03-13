@@ -70,7 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'halo.wsgi.application'
-
+#sadasdasdasd
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
