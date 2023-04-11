@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 from graphene_django.utils.testing import GraphQLTestCase
 from mixer.backend.django import mixer
 import graphene
