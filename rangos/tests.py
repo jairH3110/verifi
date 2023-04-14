@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 from graphene_django.utils.testing import GraphQLTestCase
 from mixer.backend.django import mixer
 import graphene
@@ -84,4 +82,4 @@ class LinkTestCase(GraphQLTestCase):
         self.assertDictEqual({"createRango": {'faccion':"covenant",'raza':"elites",'rango':"espada shangheli",'caracteristicas':"soldado elite",
   'peligrosidad':"alto",'representantes':"ladowir",'origen':"sanghelios",'especialidad':"ataques especiales",
   'antiguedad':"año 1300"}}, content['data'])
->>>>>>> e530d0d86f28048a051d3083ddcd60e9362a0b50
+
