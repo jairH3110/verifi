@@ -34,7 +34,13 @@ CREATE_RANGO_MUTATION = '''
       
       faccion
       raza
-      ra
+      rango
+      caracteristicas
+      peligrosidad
+      representantes
+      origen
+      especialidad
+      antiguedad
      }
  }
 '''
