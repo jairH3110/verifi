@@ -1,0 +1,5 @@
+python3 manage.py makemigrations --settings=settings.local
+python3 manage.py migrate --settings=settings.local
+python3 manage.py runserver --settings=settings.local
+
+python3 manage.py test --settings=settings.local -v 3 --keepdb
