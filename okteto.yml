@@ -1,0 +1,12 @@
+build:
+ jairh3110:
+   image: okteto.dev/jairh3110:latest
+
+deploy:
+ - okteto build # build the image with the latest code
+ - kubectl apply -f manifests # create all the resources in kubernetes
+dev:
+ jairh3110:
+   command: bash
+   sync:
+   - .:/halo
