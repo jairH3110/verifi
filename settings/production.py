@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'halo.wsgi.application'
 
 TEST_DATABASE = config("TEST_DATABASE", default='')
 TEST_USER = config("TEST_USER", default='')
-TEST_PASSWORD = config("TEST_PASSWORD", default='')
+TEST_PASSWORD = config("TEST_PASSWORD", default='HSVKMnjgfYyBL7pLjAlCfsmm-uyZBRXy')
 TEST_HOST = config("TEST_HOST", default='')
 TEST_PORT = config("TEST_PORT", default=5432)
 DATABASES = {
