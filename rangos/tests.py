@@ -63,7 +63,7 @@ class LinkTestCase(GraphQLTestCase):
         self.assertResponseNoErrors(response)
         print ("query rango results ")
         print (content)
-        assert len(content['data']['rangos']) == 2
+        assert len(content['data']['rangos']) == 3
 
 
     def test_createRango_mutation(self):
