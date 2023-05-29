@@ -27,6 +27,7 @@ class CreateRango(graphene.Mutation):
     origen = graphene.String()
     especialidad = graphene.String()
     antiguedad = graphene.String()
+    comentarios = graphene.String()
    
 
     #2
@@ -40,13 +41,14 @@ class CreateRango(graphene.Mutation):
             origen = graphene.String()
             especialidad = graphene.String()
             antiguedad = graphene.String()
+            comentarios = graphene.String()
         
 
     #3
-    def mutate(self, info, faccion, raza,rango,caracteristicas,peligrosidad,representantes,origen,especialidad,antiguedad):
+    def mutate(self, info, faccion, raza,rango,caracteristicas,peligrosidad,representantes,origen,especialidad,antiguedad,comentarios):
         rango = Rango(faccion=faccion,raza=raza,rango=rango,caracteristicas=caracteristicas,
                       peligrosidad=peligrosidad,representantes=representantes,origen=origen,
-                      especialidad=especialidad,antiguedad=antiguedad)
+                      especialidad=especialidad,antiguedad=antiguedad,comentarios=comentarios)
         rango.save()
 
         return CreateRango(
@@ -60,6 +62,7 @@ class CreateRango(graphene.Mutation):
             origen=rango.origen,
             especialidad=rango.especialidad,
             antiguedad=rango.antiguedad,
+            comentarios=rango.comentarios,
         )
 
 

@@ -12,5 +12,6 @@ class Rango(models.Model):
     origen =  models.TextField(default='', blank=False)
     especialidad =  models.TextField(default='', blank=False)
     antiguedad =  models.TextField(default='', blank=False)
+    comentarios =  models.TextField(default='', blank=False)
 
 

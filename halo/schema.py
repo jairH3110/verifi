@@ -1,14 +1,18 @@
 import graphene
-
+import users.schema
 import rangos.schema
+import graphene
+import graphql_jwt
 
-
-class Query(rangos.schema.Query, graphene.ObjectType):
+class Query(users.schema.Query,rangos.schema.Query, graphene.ObjectType):
     pass
 
 
 
-class Mutation(rangos.schema.Mutation, graphene.ObjectType):
+class Mutation(users.schema.Mutation,rangos.schema.Mutation, graphene.ObjectType):
+    token_auth = graphql_jwt.ObtainJSONWebToken.Field()
+    verify_token = graphql_jwt.Verify.Field()
+    refresh_token = graphql_jwt.Refresh.Field()
     pass
 
 
