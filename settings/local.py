@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'graphene_django', 
     'rangos', 
-    'corsheaders'
+    'corsheaders',
+    'users',
+
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+
 ]
 
 ROOT_URLCONF = 'halo.urls'
@@ -80,7 +84,7 @@ WSGI_APPLICATION = 'halo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'halo',
+        'NAME': 'halo3',
         'USER': 'postgres',
         'PASSWORD': '3110',
         'HOST': 'localhost',
@@ -107,6 +111,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -128,5 +138,8 @@ STATIC_URL = '/static/'
 
 GRAPHENE = {
     'SCHEMA': 'halo.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
 }
 CORS_ORIGIN_ALLOW_ALL = True
