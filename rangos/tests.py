@@ -20,6 +20,7 @@ RANGOS_QUERY = '''
     origen
     especialidad
     antiguedad
+    comentarios
   
   }
  }
