@@ -41,6 +41,7 @@ CREATE_RANGO_MUTATION = '''
       origen
       especialidad
       antiguedad
+      comentarios
      }
  }
 '''
@@ -59,11 +60,11 @@ class LinkTestCase(GraphQLTestCase):
 
         content = json.loads(response.content)
         #print(content)
-        # This validates the status code and if you get errores
+        # This validates the status code and if you get errors
         self.assertResponseNoErrors(response)
         print ("query rango results ")
         print (content)
-        assert len(content['data']['rangos']) == 3
+        assert len(content['data']['rangos']) == 2
 
 
     def test_createRango_mutation(self):
@@ -72,7 +73,7 @@ class LinkTestCase(GraphQLTestCase):
             CREATE_RANGO_MUTATION,
             variables={'faccion':"covenant",'raza':"elites",'rango':"espada shangheli",'caracteristicas':"soldado elite",
   'peligrosidad':"alto",'representantes':"ladowir",'origen':"sanghelios",'especialidad':"ataques especiales",
-  'antiguedad':"año 1300"}
+  'antiguedad':"año 1300",'cometarios':"un comentario"}
         )
         print('mutation ')
         print(response)
@@ -81,5 +82,5 @@ class LinkTestCase(GraphQLTestCase):
         self.assertResponseNoErrors(response)
         self.assertDictEqual({"createRango": {'faccion':"covenant",'raza':"elites",'rango':"espada shangheli",'caracteristicas':"soldado elite",
   'peligrosidad':"alto",'representantes':"ladowir",'origen':"sanghelios",'especialidad':"ataques especiales",
-  'antiguedad':"año 1300"}}, content['data'])
+  'antiguedad':"año 1300",'cometarios':"un comentario"}}, content['data'])
 
