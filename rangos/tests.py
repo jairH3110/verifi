@@ -28,9 +28,9 @@ RANGOS_QUERY = '''
 CREATE_RANGO_MUTATION = '''
  mutation createRango($faccion: String ,$raza: String ,$rango: String ,$caracteristicas: String ,
   $peligrosidad: String , $representantes: String ,$origen: String ,$especialidad: String ,
-  $antiguedad: String) {
+  $antiguedad: String,$comentarios: String) {
      createRango(faccion: $faccion, raza: $raza , rango: $rango , caracteristicas: $caracteristicas , peligrosidad: $peligrosidad , representantes: $representantes , 
-     origen: $origen , especialidad: $especialidad , antiguedad: $antiguedad) {
+     origen: $origen , especialidad: $especialidad , antiguedad: $antiguedad ,comentarios:$comentarios) {
       
       faccion
       raza
