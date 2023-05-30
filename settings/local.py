@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'halo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'halo',
+        'NAME': 'halo3',
         'USER': 'postgres',
         'PASSWORD': '3110',
         'HOST': 'localhost',
