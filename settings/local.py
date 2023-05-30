@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rangos', 
     'corsheaders',
     'users',
+
 ]
 
 MIDDLEWARE = [
@@ -141,5 +142,4 @@ GRAPHENE = {
         'graphql_jwt.middleware.JSONWebTokenMiddleware',
     ],
 }
-
 CORS_ORIGIN_ALLOW_ALL = True

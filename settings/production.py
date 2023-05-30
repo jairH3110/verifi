@@ -17,13 +17,13 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings s- unsuitable for TESTuction
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in TESTuction secret!
 #SECRET_KEY = 'yu%#5l#)w7r=su50-^nmaxw=!@7%0yer1@%(7+p*qocvy78i$i'
-SECRET_KEY = config("PROD_SECRET_KEY", default='')
-# SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = config("TEST_SECRET_KEY", default='')
+# SECURITY WARNING: don't run with debug turned on in TESTuction!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -81,21 +81,21 @@ WSGI_APPLICATION = 'halo.wsgi.application'
 # Databasesxd
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-PROD_DATABASE = config("PROD_DATABASE", default='')
-PROD_USER = config("PROD_USER", default='')
-PROD_PASSWORD = config("PROD_PASSWORD", default='')
-PROD_HOST = config("PROD_HOST", default='')
-PROD_PORT = config("PROD_PORT", default=5432)
+TEST_DATABASE = config("TEST_DATABASE", default='')
+TEST_USER = config("TEST_USER", default='')
+TEST_PASSWORD = config("TEST_PASSWORD", default='')
+TEST_HOST = config("TEST_HOST", default='')
+TEST_PORT = config("TEST_PORT", default=5432)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': PROD_DATABASE,
-        'USER': PROD_USER,
-        'PASSWORD': PROD_PASSWORD,
-        'HOST': PROD_HOST,
-        'PORT': PROD_PORT,
-        'PROD': {
-            'NAME': PROD_DATABASE,
+        'NAME': TEST_DATABASE,
+        'USER': TEST_USER,
+        'PASSWORD': TEST_PASSWORD,
+        'HOST': TEST_HOST,
+        'PORT': TEST_PORT,
+        'TEST': {
+            'NAME': TEST_DATABASE,
         },
     },
 }
