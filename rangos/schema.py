@@ -1,7 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
 from users.schema import UserType
-from .models import Rango, Vote
+from .models import Rango, Vote, Usuario
 from graphql import GraphQLError
 from django.db.models import Q
 
@@ -13,6 +13,9 @@ class VoteType(DjangoObjectType):
     class Meta:
         model = Vote
 
+
+
+#importacion de modelos
 
 class Query(graphene.ObjectType):
     rangos = graphene.List(RangoType,search=graphene.String())
@@ -36,10 +39,15 @@ class Query(graphene.ObjectType):
 
 
         return Rango.objects.all()
+    
     def resolve_votes(self, info, **kwargs):
         return Vote.objects.all()
+
+
+#  querys arriba
     
-    
+
+# create rangos
 class CreateRango(graphene.Mutation):
     id = graphene.Int()
     faccion = graphene.String()
@@ -95,7 +103,7 @@ class CreateRango(graphene.Mutation):
 
 
 
-
+#create vote
 class CreateVote(graphene.Mutation):
     user = graphene.Field(UserType)
     rango = graphene.Field(RangoType)
@@ -121,12 +129,15 @@ class CreateVote(graphene.Mutation):
         )
 
         return CreateVote(user=user, rango=rango)
+#acaba create vote
+
 
 
 
 #4l
 class Mutation(graphene.ObjectType):
     create_rango = CreateRango.Field()
-    create_vote = CreateVote.Field()    
+    create_vote = CreateVote.Field()   
+
 
 schema = graphene.Schema(query=Query, mutation=Mutation)    

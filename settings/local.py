@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rangos', 
     'corsheaders',
     'users',
+    'usuarios',
 
 ]
 

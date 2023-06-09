@@ -21,3 +21,11 @@ class Rango(models.Model):
 class Vote(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     rango = models.ForeignKey('rangos.Rango', related_name='votes', on_delete=models.CASCADE)
+
+
+class Usuario(models.Model):
+    usuario = models.TextField(default='', blank=False)
+    modelo =  models.TextField(default='', blank=False)
+    prompt =  models.TextField(default='', blank=False)  
+    resultado =  models.URLField(default='', blank=False)
+    fecha =  models.TextField(default='', blank=False)
