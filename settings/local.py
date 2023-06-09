@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     'graphene_django', 
     'rangos', 
     'corsheaders',
-    'users',
-    'usuarios',
-    'corsheaders',
      'usuarios',
      'users',
 
