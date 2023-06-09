@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'users',
     'usuarios',
+    'corsheaders',
+     'usuarios',
+     'users',
 
 ]
 
