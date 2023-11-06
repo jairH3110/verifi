@@ -21,7 +21,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /ht/
-            port: 8080
+            port: 8082
           initialDelaySeconds: 15
           periodSeconds: 15
 
@@ -36,6 +36,6 @@ spec:
   type: ClusterIP  
   ports:
   - name: "jairh3110"
-    port: 8080
+    port: 8082
   selector:
     app: jairh3110
