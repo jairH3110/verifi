@@ -1,5 +1,4 @@
 name: release CI/CD
-
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
@@ -10,60 +9,12 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  release:
+
+  setup:
+
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.8]
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}    
-    - name: show linux version
-      run: lsb_release -a
-    - name: list directory
-      run: ls -la
-    - name: show python version
-      run: python --version
-    - name: install dependencies
-      run: pip install -r requirements.txt
-    - name: make .env 
-      uses: SpicyPizza/create-envfile@v1.3
-      with:
-        envkey_TEST_SECRET_KEY : ${{ secrets.TEST_SECRET_KEY }}
-        envkey_TEST_DATABASE : ${{ secrets.TEST_DATABASE }}
-        envkey_TEST_USER : ${{ secrets.TEST_USER }}
-        envkey_TEST_PASSWORD : ${{ secrets.TEST_PASSWORD }}
-        envkey_TEST_HOST : ${{ secrets.TEST_HOST }}
-        envkey_TEST_PORT : ${{ secrets.TEST_PORT }}     
-        file_name: .env
-        fail_on_empty: false
-    - name: show .env file
-      run: cat .env
- #   - name: run tests 
-#      run: python manage.py test --settings=settings.production -v 3 --keepdb
-      
-    
-    - name: update DEV_SECRET_KEY
-      run: sed -i 's/MY_DEV_SECRET_KEY/${{secrets.DEV_SECRET_KEY}}/g' manifests/adsoftsito-configmap.yaml      
-    - name: update MY_DEV_DATABASE
-      run: sed -i 's/MY_DEV_DATABASE/${{secrets.DEV_DATABASE}}/g' manifests/adsoftsito-configmap.yaml      
-    - name: update MY_DEV_USER
-      run: sed -i 's/MY_DEV_USER/${{secrets.DEV_USER}}/g' manifests/adsoftsito-configmap.yaml      
-    - name: update MY_DEV_PASSWORD
-      run: sed -i 's/MY_DEV_PASSWORD/${{secrets.DEV_PASSWORD}}/g' manifests/adsoftsito-configmap.yaml      
-    - name: update MY_DEV_HOST 
-      run: sed -i 's/MY_DEV_HOST /${{secrets.DEV_HOST }}/g' manifests/adsoftsito-configmap.yaml      
-    - name: update MY_DEV_PORT 
-      run: sed -i 's/MY_DEV_PORT /${{secrets.DEV_PORT }}/g' manifests/adsoftsito-configmap.yaml      
-    - name: show config 
-      run: cat manifests/jairh3110-configmap.yaml
-
-      
-      
+   
     - uses: actions/checkout@v1
     - uses: okteto/context@2.7.0
       with:
@@ -72,14 +23,5 @@ jobs:
     - name: Deploy
       uses: okteto/pipeline@2.7.0
       with:
-         name: halo    
-    - uses: actions/checkout@v1
-    - uses: okteto/context@2.7.0
-      with:
-        token: ${{ secrets.OKTETO_TOKEN }}
-
-    - name: Deploy
-      uses: okteto/pipeline@2.7.0
-      with:
-         name: halo
+         name: haloProduction
          timeout: 5m
