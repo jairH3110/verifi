@@ -6,4 +6,4 @@ WORKDIR /halo
 COPY requirements.txt /halo/
 RUN pip install -r requirements.txt
 COPY . /halo/
-CMD python manage.py runserver --settings=settings.production 0.0.0.0:8000
+CMD python manage.py runserver --settings=settings.production 0.0.0.0:8002
